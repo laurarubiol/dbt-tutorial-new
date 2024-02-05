@@ -37,4 +37,4 @@ models:
       core:
       + materialized: table # Config indicated by + and applies to all files under models/
     staging:
-      + materialized: view
+      + materialized: table

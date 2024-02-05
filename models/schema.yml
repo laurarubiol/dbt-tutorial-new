@@ -16,20 +16,21 @@ models:
     description: This model cleans up customer data
     columns:
       - name: customer_id
-        description: Primary key
+        description: Primary key for stg_customers
         tests:
           - unique
           - not_null
 
   - name: stg_orders
-    description: This model cleans up order data
+    description: This model cleans up order data (one order per customer)
     columns:
       - name: order_id
-        description: Primary key
+        description: Primary key for stg_orders
         tests:
           - unique
           - not_null
       - name: status
+        description: '{{ doc("order_status") }}'
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
@@ -39,3 +40,6 @@ models:
           - relationships:
               to: ref('stg_customers')
               field: customer_id
+
+  - name: stg_payments
+    description: this model describes the payments for each order

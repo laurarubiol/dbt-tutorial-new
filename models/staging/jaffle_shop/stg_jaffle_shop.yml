@@ -2,6 +2,7 @@
 
 # models:
 #   - name: stg_customers
+#     description: one unique customer per row.
 #     columns:
 #       - name: customer_id
 #         tests: 
@@ -11,6 +12,7 @@
 # Ya hay tests en schema, no podemos duplicarlos
 
   # - name: stg_orders
+  #   description: one order per customer.
   #   columns:
   #     - name: order_id
   #       tests:
